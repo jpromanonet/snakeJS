@@ -76,6 +76,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if(e.keycode === 39){
             direction = 1 // Si apreto la flecha derecha del teclado, snake va a la derecha
+        } else if (e.keyCode === 38) {
+            direction = -width
+        } else if (e.keyCode === 37) {
+            direction = -1
+        } else if (e.keyCode === 40) {
+            direction = +width
         }
     }
 
