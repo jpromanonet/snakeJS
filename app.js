@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const square = document.querySelectorAll('.grid div')
+    const squares = document.querySelectorAll('.grid div')
     const scoreDisplay = document.querySelector('span')
     const startBtn = document.querySelector('.start')
 
@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
         squares[currentSnake[0].classList.add('snake')]
     }
 
-    // Asignar funciones a los keycodes
+    // Generar una manzana nueva en cualquier parte del grid cuando se comio la anterior
     function randomApple() {
         do {
             appleIndex = Math.floor(Math.random() * squares.length)
@@ -70,5 +70,15 @@ document.addEventListener('DOMContentLoaded', () => {
         squares[appleIndex].classList.add('apple')
     }
 
-    
+    // Asignar funciones a los keycodes
+    function control(e) {
+        squares[currentIndex].classList.remove('snake')
+
+        if(e.keycode === 39){
+            direction = 1 // Si apreto la flecha derecha del teclado, snake va a la derecha
+        }
+    }
+
+    document.addEventListener('keyup', control)
+    startBtn.addEventListener('click', startGame)
 })
