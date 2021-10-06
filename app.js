@@ -61,4 +61,14 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         squares[currentSnake[0].classList.add('snake')]
     }
+
+    // Asignar funciones a los keycodes
+    function randomApple() {
+        do {
+            appleIndex = Math.floor(Math.random() * squares.length)
+        } while(squares[appleIndex].classList.contains('snake'))
+        squares[appleIndex].classList.add('apple')
+    }
+
+    
 })
